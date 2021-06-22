@@ -1,5 +1,9 @@
-import 'package:big_fit_vize/stretch.dart';
+import 'package:big_fit_vize/pages/stretch.dart';
 import 'package:flutter/material.dart';
+import 'package:big_fit_vize/model/line_chart_data.dart';
+import 'package:big_fit_vize/pages/activity/activitypage.dart';
+import 'package:big_fit_vize/pages/onboarding/onboardingpage.dart';
+
 
 import 'abs.dart';
 import 'arm.dart';
@@ -119,6 +123,52 @@ class _WorkoutsState extends State<Workouts> {
                   MaterialPageRoute(builder: (context) => Stretch()),
                 );
               },
+            ),
+            ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage("photos/indir.png"),
+              ),
+              title: Text('Oranlar'),
+              subtitle: Text('GRAFIK'),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Grafik()),
+                );
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 1.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => OnBoardingPage()),
+                  );
+                },
+                child: Text('AKTİVİTELERİM'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.purple,
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 1.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ActivityPage()),
+                  );
+                },
+                child: Text('aktivite seçenekleri'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.purple,
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                ),
+              ),
             ),
           ],
         ),

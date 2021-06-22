@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:big_fit_vize/pages/workout_screen.dart';
 
 class Arm extends StatefulWidget {
   @override
@@ -48,6 +49,18 @@ class _ArmState extends State<Arm> {
                     Navigator.pushNamed(context, '/');
                   },
                   child: Text('Anasayfaya Dön'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 1.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WorkoutScreen()),
+                    );
+                  },
+                  child: Text('Diğer Antrenmanlar'),
                 ),
               ),
             ],

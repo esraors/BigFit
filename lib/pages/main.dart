@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:big_fit_vize/workouts.dart';
-import 'package:big_fit_vize/hakkinda.dart';
-import 'package:big_fit_vize/nutrition.dart';
+import 'package:big_fit_vize/pages/workouts.dart';
+import 'package:big_fit_vize/pages/hakkinda.dart';
+import 'package:big_fit_vize/pages/nutrition.dart';
+import 'package:big_fit_vize/services/api.dart';
+import 'package:big_fit_vize/services/firebase.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +25,11 @@ class MyAppHome extends StatefulWidget {
     return _MyAppHomeState();
   }
 }
-
+  String dragDirection = '';
+  String startDXPoint = '';
+  String startDYPoint = '';
+  String velocity = '';
+  String distance = '';
 class _MyAppHomeState extends State<MyAppHome> {
   @override
   Widget build(BuildContext context) {
@@ -42,6 +48,7 @@ class _MyAppHomeState extends State<MyAppHome> {
             fit: BoxFit.cover,
           ),
         ),
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -96,7 +103,7 @@ class _MyAppHomeState extends State<MyAppHome> {
                 }
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              padding: const EdgeInsets.symmetric(vertical: 1.0),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -108,7 +115,7 @@ class _MyAppHomeState extends State<MyAppHome> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              padding: const EdgeInsets.symmetric(vertical: 1.0),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -120,7 +127,7 @@ class _MyAppHomeState extends State<MyAppHome> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              padding: const EdgeInsets.symmetric(vertical: 1.0),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -129,6 +136,30 @@ class _MyAppHomeState extends State<MyAppHome> {
                   );
                 },
                 child: Text('Beslenme Hakkinda'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 1.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FiBa()),
+                  );
+                },
+                child: Text('Firebase'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 1.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ApiEx()),
+                  );
+                },
+                child: Text('Api'),
               ),
             ),
           ],

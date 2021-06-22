@@ -1,5 +1,9 @@
+import 'package:big_fit_vize/pages/bazalmet.dart';
 import 'package:flutter/material.dart';
-import 'package:big_fit_vize/vki.dart';
+import 'package:big_fit_vize/pages/vki.dart';
+import 'package:big_fit_vize/pages/whatiatelist.dart';
+import 'package:big_fit_vize/pages/healtyfood.dart';
+
 
 class Nutrition extends StatefulWidget {
   @override
@@ -58,8 +62,54 @@ class _NutritionState extends State<Nutrition> {
                 child: Text('Vücut Kitle Indeksi Hesaplama'),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BazalMet()),
+                  );
+                },
+                child: Text('Bazal Metabolizma Hızı Hesaplama'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TodoList()),
+                  );
+                },
+                child: Text('Yediklerinizi kaydedin!'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 1.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Deneme()),
+                  );
+                },
+                child: Text('nutritive values'),
+              ),
+            ),
           ]
       ),
     );
+  }
+  String dragDirection = '';
+  String startDXPoint = '';
+  String startDYPoint = '';
+  void _onVerticalDragStartHandler(DragStartDetails details) {
+    setState(() {
+      this.dragDirection = "DİKEY";
+      this.startDXPoint = '${details.globalPosition.dx.floorToDouble()}';
+      this.startDYPoint = '${details.globalPosition.dy.floorToDouble()}';
+    });
   }
 }
